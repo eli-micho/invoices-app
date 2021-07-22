@@ -1,0 +1,44 @@
+@import '../../global.scss';
+
+.invoices {
+    display: flex;
+    justify-content: center;
+    padding-top: 70px;
+    width: 100%;
+    .wrapper {
+        width: 60%;
+        .invoicesTop {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 60px;
+            .left {
+                flex: 8;
+                h1 {
+                    margin-bottom: 0;
+                }
+            }
+            .right {
+                flex: 4;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .selectForm {
+                    min-width: 150px;
+                }
+
+                .newInvoiceBtn {
+                    color: white;
+                    background-color: $secondaryColor;
+                    text-transform: none;
+                    font-weight: 600;
+                    font-size: 20px;
+                }
+            }
+        }
+        .invoiceItems {
+            .invoiceItem {
+                margin-bottom: 25px;
+            }
+        }
+    }
+}

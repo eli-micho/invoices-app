@@ -1,0 +1,101 @@
+@import '../../global.scss';
+
+.landing {
+    display: flex;
+    justify-content: center;
+    padding-top: 70px;
+    width: 100%;
+
+    .wrapper {
+        display: flex;
+        width: 60%;
+
+        .landingLeft {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            flex: 6;
+            background-color: $tertiaryColor;
+
+            h1 {
+                color: white;
+            }
+            .imgWrapper {
+                border-radius: 10px;
+                padding: 0 25px;
+                flex: 2;
+                width: 60%;
+                background-color: white;
+                img {
+                    width: 100%;
+                }
+            }
+            .landingText {
+                color: white;
+                font-size: 18px;
+                font-weight: 200;
+                text-align: center;
+            }
+        
+        }
+
+        .landingRight {
+            display: flex;
+            justify-content: center;
+            height: 100%;
+            flex: 6;
+            background-color: white;
+
+            .formWrap {
+                padding: 25px;
+                display: flex;
+                flex-direction: column;
+
+                a {
+                    color: blue;
+                }
+            }
+            .emailLoginTitle {
+                margin: 15px 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: gray;
+                font-weight: 300;
+                hr {
+                    height: 1px;
+                    flex: 3;
+                }
+                span {
+                    text-align: center;
+                    flex: 9;
+                }
+            }
+        }
+    }
+    
+    h2 {
+        font-size: 35px;
+        margin: 20px 0;
+    }
+
+    .landingImg {
+        height: 90%;
+        width: 90%;
+    }
+
+   
+    .bottom {
+        display: flex;
+        flex-direction: column;
+        .landingBtn {
+            margin: 10px 0;
+
+            &:hover {
+                color:white;
+                background-color: $secondaryColor;
+            }
+        }
+    }
+}

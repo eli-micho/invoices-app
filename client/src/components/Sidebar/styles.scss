@@ -1,0 +1,66 @@
+@import '../../global.scss';
+
+.sidebar {
+    background-color: $tertiaryColor;
+    color: white;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    position: relative;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+
+    .sidebarTop {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 0;
+        width: 100%;
+        background-color: $secondaryColor;
+        border-top-right-radius: 25px;
+        border-bottom-right-radius: 25px;
+        
+        .logo {
+            font-size: 45px;
+            z-index: 2;
+        }
+    }
+    .lighterShade {
+        position: absolute;
+        top: 42.5px;
+        height: 42.5px;
+        width: 100%;
+        border-bottom-right-radius: 25px;
+        background-color: $primaryColor;
+        opacity: 0.3;
+        &::before {
+            content: '';
+        }
+    }
+
+    .sidebarBottom{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        .modeIcon {
+            font-size: 30px;
+            cursor: pointer;
+        }
+        hr {
+            width: 100%;
+        }
+
+        span {
+            cursor: pointer;
+            .profileImg {
+                margin-top: 10px;
+                width: 35px;
+                height: 35px;
+            }
+        }
+    }
+}
