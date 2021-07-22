@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 //Components
 import InvoiceItem from './InvoiceItem/InvoiceItem';
+import NewInvoiceModal from '../../components/NewInvoiceModal/NewInvoiceModal';
 
 //MaterialUI 
 import InputLabel from '@material-ui/core/InputLabel';
@@ -14,10 +15,17 @@ import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 
 export default function Invoices() {
     const [filter, setFilter] = useState('');
+    const [modalOpen, setModalOpen] = useState(false);
 
     const handleChange = (e) => {
         setFilter(e.target.value)
     };
+
+    const handleModalOpen = () => {
+        setModalOpen(true)
+    };
+
+    
     return (
         <div className="invoices">
             <div className="wrapper">
@@ -42,6 +50,7 @@ export default function Invoices() {
                             variant="contained" 
                             startIcon={<AddCircleOutlineIcon/>}
                             className="newInvoiceBtn"
+                            onClick={handleModalOpen}
                         >
                             New Invoice
                         </Button>
@@ -52,6 +61,10 @@ export default function Invoices() {
                     <InvoiceItem />
                 </div>
             </div>
+            <NewInvoiceModal
+                open={modalOpen}
+                setModalOpen={setModalOpen}
+            />
         </div>
     )
 }

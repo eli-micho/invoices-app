@@ -1,0 +1,33 @@
+@import '../../global.scss';
+
+.newInvoice {
+    display: flex;
+    overflow: hidden;
+    height: 100vh;
+
+    .newInvoiceLeft{
+        flex: 8;
+    }
+
+    .newInvoiceRight {
+        flex: 4;
+        padding: 15px;
+        height: 100%;
+        background-color: $backgroundColor;
+
+        .newInvoiceHeader {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            h1 {
+                margin: 0;
+            }
+            .closeModalBtn {
+                cursor: pointer;
+            }
+        }
+        .dateContainer {
+            
+        }
+    }
+}
