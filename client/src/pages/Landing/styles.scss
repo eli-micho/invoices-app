@@ -42,36 +42,12 @@
 
         .landingRight {
             display: flex;
+            flex-direction: column;
+            align-items: center;
             justify-content: center;
             height: 100%;
             flex: 6;
             background-color: white;
-
-            .formWrap {
-                padding: 25px;
-                display: flex;
-                flex-direction: column;
-
-                a {
-                    color: blue;
-                }
-            }
-            .emailLoginTitle {
-                margin: 15px 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                color: gray;
-                font-weight: 300;
-                hr {
-                    height: 1px;
-                    flex: 3;
-                }
-                span {
-                    text-align: center;
-                    flex: 9;
-                }
-            }
         }
     }
     
