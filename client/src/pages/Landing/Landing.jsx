@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 import './styles.scss';
 
 import LoginForm from '../../components/LoginForm/LoginForm';
@@ -6,9 +8,12 @@ import RegisterForm from '../../components/RegisterForm/RegisterForm';
 
 //MaterialUI
 
-
+const FormTabs = () => {
+    
+}
 
 export default function Landing() {
+    const [formStatus, setFormStatus] = useState(0);
   
     return (
         <div className="landing">
@@ -25,11 +30,34 @@ export default function Landing() {
                     </p>
                 </div>
                 <div className="landingRight">
-                    <div className="landingTitle">
-                        <h2>Sign Up</h2>
-                        <p>Track your invoices and keep your books up to date!</p>
-                    </div>
-                    <RegisterForm/>
+                    <Tabs>
+                        <TabList>
+                            <Tab>Sign Up</Tab>
+                            <Tab>Log In</Tab>
+                        </TabList>
+
+                        <TabPanel>
+                            <RegisterForm/>
+                        </TabPanel>
+                        <TabPanel>
+                            <LoginForm/>
+                        </TabPanel>
+                    </Tabs>
+                   {/*  <div className="landingTitle">
+                       {formStatus === 0 
+                        ?   <>
+                            <div className="signupTitle">
+                                <h2>Sign Up</h2>
+                                <p>Track your invoices and keep your books up to date!</p>
+                            </div>
+                            <RegisterForm/>
+                            </>
+                        : <div className="loginTitle">
+                            <h2>Log In</h2>
+                            <p>Welcome back! Login in and get to tracking!</p>
+                        </div>    
+                        }
+                    </div> */}
                 </div>
             </div>
         </div> 

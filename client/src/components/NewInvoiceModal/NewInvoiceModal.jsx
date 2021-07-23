@@ -1,10 +1,19 @@
 import './styles.scss';
+import { useState } from 'react';
 
 //MaterialUI
 import { Modal, FormControl, FormControlLabel, TextField, InputLabel, Input, Checkbox, Button } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 
 export default function NewInvoiceModal({ open, setModalOpen }) {
+    const [date, setDate] = useState('');
+
+    const handleChange = (e) => {
+        setDate(e.target.value);
+    };
+    const handleSubmit = () => {
+
+    };
     return (
             <Modal
                 open={open}
@@ -33,7 +42,7 @@ export default function NewInvoiceModal({ open, setModalOpen }) {
                             <div className="dateContainer">
                                 <FormControl>
                                     <InputLabel htmlFor="projectName">Issued On:</InputLabel>
-                                    <Input id=""/>
+                                    <Input id="" value={date} onChange={handleChange}/>
                                 </FormControl>
                                 <FormControl>
                                     <InputLabel htmlFor="projectName">Due On:</InputLabel>
@@ -45,6 +54,12 @@ export default function NewInvoiceModal({ open, setModalOpen }) {
                                     control={<Checkbox color="primary"/>}
                                     label="This is a reccuring invoice (monthly)"
                                 />
+                            </div>
+                            <div>
+                                <FormControl>
+                                    <InputLabel htmlFor="projectRecipient">Recipient:</InputLabel>
+                                    <Input id=""/>
+                                </FormControl>
                             </div>
 
                             <h2>Item List</h2>
@@ -90,8 +105,7 @@ export default function NewInvoiceModal({ open, setModalOpen }) {
                             <hr/>
                             <div>
                                 <span>Preview</span>
-                                <Button variant="contained">Save as Draft</Button>
-                                <Button variant="contained">Send</Button>
+                                <Button variant="contained" className="newInvoiceBtn" onClick={handleSubmit}>Send</Button>
                             </div>
                         </form>
                     </div>

@@ -7,6 +7,8 @@ import Landing from './pages/Landing/Landing';
 import Register from './pages/Register/Register';
 import Invoices from './pages/Invoices/Invoices';
 
+import store  from './redux/store'
+
 function App() {
   return (
     <>
