@@ -12,6 +12,7 @@ export default function Sidebar() {
                 
             </div>
             <div className="lighterShade"></div>
+            
             <div className="sidebarBottom">
                 <Brightness6Icon className="modeIcon"/>
                 <hr/>

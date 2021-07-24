@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { login } from './../../redux/features/users/userSlice';
 import './styles.scss';
 
 //MaterialUI
@@ -22,12 +24,21 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function LoginForm() {
+    const dispatch = useDispatch()
     const classes = useStyles();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        dispatch(
+            login({
+                email: email,
+                password: password,
+                loggedIn: true,
+            })
+        );
     };
     return (
         <div className="formWrap tabContent">

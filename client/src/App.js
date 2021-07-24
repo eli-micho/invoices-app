@@ -1,25 +1,26 @@
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectUser } from './redux/features/users/userSlice';
+
 //Components
-import Header from './components/Header/Header';
 import Sidebar from './components/Sidebar/Sidebar';
 //Pages
 import Landing from './pages/Landing/Landing';
 import Register from './pages/Register/Register';
 import Invoices from './pages/Invoices/Invoices';
 
-import store  from './redux/store'
-
 function App() {
+  const user = useSelector(selectUser);
   return (
     <div className="app">
       <Sidebar />
       <div className="sections">
         <Switch>
           <Route exact path="/">
-            <Landing />
+            {user ? <Redirect to="/invoices"/> : <Landing/>}
           </Route>
           <Route exact path="/invoices">
-            <Invoices/>
+            {user === null ? <Landing/> : <Invoices />}
           </Route>
           <Route path="/register">
             <Register/>

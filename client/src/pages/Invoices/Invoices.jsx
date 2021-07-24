@@ -1,6 +1,7 @@
 import './styles.scss';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { logout } from '../../redux/features/users/userSlice';
 
 //Components
 import InvoiceItem from './InvoiceItem/InvoiceItem';
@@ -38,9 +39,19 @@ export default function Invoices() {
                 />
     })
 
-    
+    const handleLogout = (e) => {
+        
+        dispatch(logout())
+    };
     return (
         <div className="invoices">
+            <Button 
+                className="logoutBtn"
+                variant="contained"
+                onClick={handleLogout}
+            >
+                Log Out
+            </Button>
             <div className="wrapper">
                 <div className="invoicesTop">
                     <div className="left">

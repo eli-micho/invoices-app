@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import './styles.scss';
 
@@ -25,6 +26,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function RegisterForm() {
     const classes = useStyles();
+    const dispatch = useDispatch();
     const history = useHistory();
     const [name, setName] = useState('')
     const [email, setEmail] = useState('');
@@ -43,11 +45,16 @@ export default function RegisterForm() {
             };
             try{
                 await axios.post("/auth/register", user);
+                dispatch({
+                    type: 'EMAIL_SIGNUP_START',
+                    payload: user
+                })
                 history.push("/invoices");
             }catch(err){
                 console.log(err)
             }
         }
+        
     };
     return (
         <div className="formWrap tabContent">
