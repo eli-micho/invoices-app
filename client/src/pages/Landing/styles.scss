@@ -1,4 +1,8 @@
 @import '../../global.scss';
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
 
 .landing {
     display: flex;
@@ -56,6 +60,9 @@
                     color: blue;
                     cursor: pointer;
                 }
+            }
+            .tabContent {
+                animation: fadeEffect 0.5s;
             }
         }
     }

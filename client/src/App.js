@@ -11,7 +11,6 @@ import store  from './redux/store'
 
 function App() {
   return (
-    <>
     <div className="app">
       <Sidebar />
       <div className="sections">
@@ -25,11 +24,9 @@ function App() {
           <Route path="/register">
             <Register/>
           </Route>
-        </Switch>
-        
+        </Switch>  
       </div>
     </div>
-    </>
   );
 }
 

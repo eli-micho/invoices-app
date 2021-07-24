@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 import './styles.scss';
 
 //MaterialUI
@@ -23,15 +25,32 @@ const useStyles = makeStyles(theme => ({
 
 export default function RegisterForm() {
     const classes = useStyles();
+    const history = useHistory();
     const [name, setName] = useState('')
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        if(confirmPassword !== password){
+            password.setCustomValidity("Passwords do not match!")
+        }else {
+            const user = {
+                username: name,
+                email: email,
+                password: password
+            };
+            try{
+                await axios.post("/auth/register", user);
+                history.push("/invoices");
+            }catch(err){
+                console.log(err)
+            }
+        }
     };
     return (
-        <div className="formWrap">
+        <div className="formWrap tabContent">
                         <Button
                             variant="outlined"
                             className="loginBtn" 
@@ -68,6 +87,15 @@ export default function RegisterForm() {
                                 required
                                 value={password}
                                 onChange={e => setPassword(e.target.value)}
+                            />
+                            <TextField
+                                label="Confirm Password"
+                                variant="outlined"
+                                type="password"
+                                fullWidth
+                                required
+                                value={confirmPassword}
+                                onChange={e => setConfirmPassword(e.target.value)}
                             />
                             <div>
                                 <FormControlLabel

@@ -30,7 +30,7 @@ export default function LoginForm() {
         e.preventDefault();
     };
     return (
-        <div className="formWrap">
+        <div className="formWrap tabContent">
                         <Button
                             variant="outlined"
                             className="loginBtn" 
